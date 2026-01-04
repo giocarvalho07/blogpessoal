@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palestras - Giovanni Carvalho Mendes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Failsafe para forçar o fundo preto no modo escuro */
+        html.dark body {
+            background-color: #000;
+            color: #ffffff;
+            /* Texto branco */
+        }
+
+        html.dark .dark-card {
+            background-color: #111827;
+            /* Cinza um pouco mais claro que o fundo */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans dark:bg-black dark:text-white transition-colors duration-300">
+
+    <!-- Cabeçalho e Navegação -->
+    <header id="header" class="bg-white dark-card shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-bold text-blue-600 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent">Giovanni
+                Carvalho Mendes</a>
+
+            <!-- Menu Desktop -->
+            <div class="space-x-4 hidden md:flex items-center">
+                <a href="index.html#sobre"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-about">Sobre</a>
+                <a href="#"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-lectures">Palestras</a>
+                <a href="#contato"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-contact">Fale Comigo</a>
+
+                <button onclick="translatePage('en')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Translate to English">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#0A3161" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 7H21V9H3V7Z" fill="#FFFFFF" />
+                        <path d="M3 11H21V13H3V11Z" fill="#FFFFFF" />
+                        <path d="M3 15H21V17H3V15Z" fill="#FFFFFF" />
+                        <path d="M3 19H21V21H3V19Z" fill="#FFFFFF" />
+                        <path d="M3 3H12V11H3V3Z" fill="#BF0A30" />
+                        <path d="M5 5L10 9L5 9L10 5L5 5Z" fill="#FFFFFF" />
+                        <path d="M7.5 4.5L8.5 6.5L6.5 6.5L7.5 4.5Z" fill="#FFFFFF" />
+                        <path d="M7.5 7.5L8.5 9.5L6.5 9.5L7.5 7.5Z" fill="#FFFFFF" />
+                        <path d="M4.5 7.5L5.5 9.5L3.5 9.5L4.5 7.5Z" fill="#FFFFFF" />
+                        <path d="M10.5 7.5L11.5 9.5L9.5 9.5L10.5 7.5Z" fill="#FFFFFF" />
+                        <path d="M4.5 4.5L5.5 6.5L3.5 6.5L4.5 4.5Z" fill="#FFFFFF" />
+                        <path d="M10.5 4.5L11.5 6.5L9.5 6.5L10.5 4.5Z" fill="#FFFFFF" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('es')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traducir a Español">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#FFC400" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 9H21V15H3V9Z" fill="#C60B1E" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('pt-BR')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traduzir para Português (BR)">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#009B3A" />
+                        <path d="M12 6L17 12L12 18L7 12L12 6Z" fill="#FFCC29" />
+                        <path
+                            d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
+                            fill="#002776" />
+                    </svg>
+                </button>
+
+                <button id="dark-mode-toggle"
+                    class="ml-4 p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <!-- Ícone de Lua/Sol -->
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.464 16.364a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM13.536 16.364a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Botão Menu Hambúrguer -->
+            <div class="md:hidden flex items-center">
+                <!-- Language Switcher Mobile -->
+                <button onclick="translatePage('en')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Translate to English">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#00247D" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 12H21" stroke="#FFFFFF" stroke-width="2" />
+                        <path d="M12 3V21" stroke="#FFFFFF" stroke-width="2" />
+                        <path d="M3 12H21" stroke="#CF142B" stroke-width="1" />
+                        <path d="M12 3V21" stroke="#CF142B" stroke-width="1" />
+                        <path d="M3 5L21 19M3 19L21 5" stroke="#CF142B" stroke-width="1" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('es')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traducir a Español">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#FFC400" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 9H21V15H3V9Z" fill="#C60B1E" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('pt-BR')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traduzir para Português (BR)">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#009B3A" />
+                        <path d="M12 6L17 12L12 18L7 12L12 6Z" fill="#FFCC29" />
+                        <path
+                            d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
+                            fill="#002776" />
+                    </svg>
+                </button>
+                <button id="mobile-menu-button" class="p-2 text-gray-600 dark:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark-card">
+            <a href="index.html#sobre"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-about">Sobre</a>
+            <a href="#" class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-lectures">Palestras</a>
+            <a href="#contato"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-contact">Fale Comigo</a>
+            <div class="px-6 py-2 flex justify-between items-center">
+                <button id="dark-mode-toggle-mobile"
+                    class="w-full text-left p-2 rounded-md text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                    Mudar para <span id="theme-name">Dark</span> Mode
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto max-w-5xl p-6 mt-8">
+        <section class="mb-16">
+            <div class="mb-6">
+                <a href="index.html" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span data-key="back-button">Voltar</span>
+                </a>
+            </div>
+            <h2 class="text-3xl font-bold border-b-2 border-blue-200 dark:border-blue-700 pb-2 mb-8 text-blue-600 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent"
+                data-key="lectures-page-title">Palestras e Apresentações</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Spring Monitoring -->
+                <div
+                    class="bg-white dark-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <img src="arquivos/capa-ferramtas-spring-boot.jpeg" alt="Capa Monitoramento Spring"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-sm text-blue-600 dark:text-blue-400 mb-2 font-semibold">Spring Boot • SRE</div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Monitoramento de Microsserviços
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm flex-grow">
+                            Ferramentas e práticas para monitoramento eficiente de aplicações distribuídas no
+                            ecossistema Spring Boot.
+                        </p>
+                        <a href="arquivos/meetup - Ferramentas para o monitoramento de microserviços e aplicações distribuídas no ambiente Spring.pdf"
+                            download
+                            class="inline-block bg-blue-600 dark:bg-purple-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-purple-700 transition text-center">
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: GoLang Project -->
+                <div
+                    class="bg-white dark-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <img src="arquivos/capa-golang.jpeg" alt="Capa GoLang" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-sm text-blue-600 dark:text-blue-400 mb-2 font-semibold">GoLang • Hands-on</div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Primeiro Projeto em GoLang</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm flex-grow">
+                            Construindo um gerador de boletos na prática: uma introdução "mão na massa" à linguagem Go.
+                        </p>
+                        <a href="arquivos/meetup - criando meu primeiro projeto em GoLang - Gerador de boletos.pdf"
+                            download
+                            class="inline-block bg-blue-600 dark:bg-purple-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-purple-700 transition text-center">
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Node.js API -->
+                <div
+                    class="bg-white dark-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <img src="arquivos/capa-api-nodeJS.jpeg" alt="Capa Node.js API" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-sm text-blue-600 dark:text-blue-400 mb-2 font-semibold">Node.js • API</div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Criando minha primeira API
+                            NodeJS</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm flex-grow">
+                            Uma abordagem prática para desenvolvedores Java iniciarem no mundo Node.js, explorando
+                            conceitos e comparativos.
+                        </p>
+                        <a href="arquivos/meetup - Criando minha primeira API nodejs (Pela ótica de um Dev Java).pdf"
+                            download
+                            class="inline-block bg-blue-600 dark:bg-purple-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-purple-700 transition text-center">
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: AWS Certification -->
+                <div
+                    class="bg-white dark-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <img src="arquivos/capa-certificacao-aws.jpeg" alt="Capa Certificação AWS"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-sm text-blue-600 dark:text-blue-400 mb-2 font-semibold">AWS • Carreira</div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Como estudar para certificação
+                            AWS</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm flex-grow">
+                            Dicas estratégicas, roteiro de estudos e recursos essenciais para conquistar sua
+                            certificação Amazon Web Services.
+                        </p>
+                        <a href="arquivos/meetup - como estudar para certificação AWS.pdf" download
+                            class="inline-block bg-blue-600 dark:bg-purple-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-purple-700 transition text-center">
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: Mentoria Tech -->
+                <div
+                    class="bg-white dark-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <img src="arquivos/capa-mentoria-fullstack.jpeg" alt="Capa Mentoria Full Stack"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-sm text-blue-600 dark:text-blue-400 mb-2 font-semibold">Mentoria • Carreira
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Mentoria Tech Full Stack</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm flex-grow">
+                            Detalhes sobre o programa de mentoria para desenvolvedores full stack e aceleração de
+                            carreira.
+                        </p>
+                        <a href="arquivos/mentoriatech full stack.pdf" download
+                            class="inline-block bg-blue-600 dark:bg-purple-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 dark:hover:bg-purple-700 transition text-center">
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-gray-600 dark:text-gray-300">Mais conteúdos serão adicionados em breve.</p>
+                </div>
+        </section>
+
+
+        <!-- Seção Fale Comigo -->
+        <section id="contato" class="mb-16 scroll-mt-20">
+            <h3 class="text-2xl font-bold border-b-2 border-blue-200 dark:border-blue-700 pb-2 mb-6 text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent"
+                data-key="contact-me-title">Fale Comigo</h3>
+            <div class="flex justify-center">
+                <div
+                    class="w-full max-w-lg bg-white dark-card p-8 rounded-lg shadow-md flex flex-col items-center justify-center text-center">
+                    <p class="text-xl font-semibold text-gray-500 !dark:text-gray-400 mb-8" data-key="contact-prompt">
+                        Entre em contato:</p>
+
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me/5511961985346?text=OL%C3%81%20GIOVANNI.TECH%20VIM%20PELO%20SEU%20SITE"
+                        target="_blank"
+                        class="w-full bg-green-500 text-white font-bold px-6 py-4 rounded-lg hover:bg-green-600 transition flex items-center justify-center mb-4 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        data-key="contact-whatsapp-button" id="btn-whatsapp">
+                        <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.04 2.01c-5.47 0-9.91 4.44-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.4 5.15 5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.47 0 9.91-4.44 9.91-9.91s-4.44-9.91-9.91-9.91zm4.79 13.58c-.29.29-.68.43-1.07.43-.39 0-.78-.14-1.07-.43l-.64-.64c-.19-.19-.49-.19-.68 0-.19.19-.19.49 0 .68l.64.64c.58.58 1.35.87 2.12.87.77 0 1.54-.29 2.12-.87l.64-.64c.19-.19.19-.49 0-.68-.19-.19-.49-.19-.68 0l-.64.64zm-1.42-1.42c-.29.29-.68.43-1.07.43-.39 0-.78-.14-1.07-.43l-.64-.64c-.19-.19-.49-.19-.68 0-.19.19-.19.49 0 .68l.64.64c.58.58 1.35.87 2.12.87.77 0 1.54-.29 2.12-.87l.64-.64c.19-.19.19-.49 0-.68-.19-.19-.49-.19-.68 0l-.64.64zm-1.42-1.42c-.29.29-.68.43-1.07.43-.39 0-.78-.14-1.07-.43l-.64-.64c-.19-.19-.49-.19-.68 0-.19.19-.19.49 0 .68l.64.64c.58.58 1.35.87 2.12.87.77 0 1.54-.29 2.12-.87l.64-.64c.19-.19.19-.49 0-.68-.19-.19-.49-.19-.68 0l-.64.64z" />
+                        </svg>
+                        WhatsApp
+                    </a>
+
+                    <!-- Email Button -->
+                    <a href="mailto:giovannidecarvalhomendes@gmail.com?subject=SITE%20PESSOAL%20GIOVANNI.TECH"
+                        class="w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-lg hover:bg-blue-700 dark:bg-purple-600 dark:hover:bg-purple-700 transition flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        data-key="contact-email-button" id="btn-email">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        E-mail
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-white dark-card mt-16 py-6">
+        <div class="container mx-auto max-w-5xl px-6 text-center text-gray-500 dark:text-gray-400">
+            <p data-key="footer-text">&copy; 2025 Giovanni Carvalho Mendes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Pessoal - Giovanni Carvalho Mendes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Failsafe para forçar o fundo preto no modo escuro */
+        html.dark body {
+            background-color: #000;
+            color: #ffffff;
+            /* Texto branco */
+        }
+
+        html.dark .dark-card {
+            background-color: #111827;
+            /* Cinza um pouco mais claro que o fundo */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans dark:bg-black dark:text-white transition-colors duration-300">
+
+    <!-- Cabeçalho e Navegação -->
+    <header id="header" class="bg-white dark-card shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-bold text-blue-600 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent">Giovanni
+                Carvalho Mendes</a>
+
+            <!-- Menu Desktop -->
+            <div class="space-x-4 hidden md:flex items-center">
+                <a href="#experiencia"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-experience">Experiência</a>
+                <a href="#competencias"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-skills">Competências</a>
+                <a href="palestras.html"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-lectures">Palestras</a>
+                <a href="cursos.html"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-courses">Cursos</a>
+                <a href="mentoria.html"
+                    class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    data-key="nav-mentoring">Mentoria</a>
+
+                <button onclick="translatePage('en')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Translate to English">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#0A3161" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 7H21V9H3V7Z" fill="#FFFFFF" />
+                        <path d="M3 11H21V13H3V11Z" fill="#FFFFFF" />
+                        <path d="M3 15H21V17H3V15Z" fill="#FFFFFF" />
+                        <path d="M3 19H21V21H3V19Z" fill="#FFFFFF" />
+                        <path d="M3 3H12V11H3V3Z" fill="#BF0A30" />
+                        <path d="M5 5L10 9L5 9L10 5L5 5Z" fill="#FFFFFF" />
+                        <path d="M7.5 4.5L8.5 6.5L6.5 6.5L7.5 4.5Z" fill="#FFFFFF" />
+                        <path d="M7.5 7.5L8.5 9.5L6.5 9.5L7.5 7.5Z" fill="#FFFFFF" />
+                        <path d="M4.5 7.5L5.5 9.5L3.5 9.5L4.5 7.5Z" fill="#FFFFFF" />
+                        <path d="M10.5 7.5L11.5 9.5L9.5 9.5L10.5 7.5Z" fill="#FFFFFF" />
+                        <path d="M4.5 4.5L5.5 6.5L3.5 6.5L4.5 4.5Z" fill="#FFFFFF" />
+                        <path d="M10.5 4.5L11.5 6.5L9.5 6.5L10.5 4.5Z" fill="#FFFFFF" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('es')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traducir a Español">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#FFC400" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 9H21V15H3V9Z" fill="#C60B1E" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('pt-BR')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traduzir para Português (BR)">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#009B3A" />
+                        <path d="M12 6L17 12L12 18L7 12L12 6Z" fill="#FFCC29" />
+                        <path
+                            d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
+                            fill="#002776" />
+                    </svg>
+                </button>
+
+                <button id="dark-mode-toggle"
+                    class="ml-4 p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <!-- Ícone de Lua/Sol -->
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.464 16.364a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM13.536 16.364a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Botão Menu Hambúrguer -->
+            <div class="md:hidden flex items-center">
+                <!-- Language Switcher Mobile -->
+                <button onclick="translatePage('en')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Translate to English">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#00247D" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 12H21" stroke="#FFFFFF" stroke-width="2" />
+                        <path d="M12 3V21" stroke="#FFFFFF" stroke-width="2" />
+                        <path d="M3 12H21" stroke="#CF142B" stroke-width="1" />
+                        <path d="M12 3V21" stroke="#CF142B" stroke-width="1" />
+                        <path d="M3 5L21 19M3 19L21 5" stroke="#CF142B" stroke-width="1" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('es')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traducir a Español">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#FFC400" />
+                        <path
+                            d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
+                            stroke="#000000" stroke-width="0.5" />
+                        <path d="M3 9H21V15H3V9Z" fill="#C60B1E" />
+                    </svg>
+                </button>
+                <button onclick="translatePage('pt-BR')"
+                    class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                    title="Traduzir para Português (BR)">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
+                            fill="#009B3A" />
+                        <path d="M12 6L17 12L12 18L7 12L12 6Z" fill="#FFCC29" />
+                        <path
+                            d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
+                            fill="#002776" />
+                    </svg>
+                </button>
+                <button id="mobile-menu-button" class="p-2 text-gray-600 dark:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark-card">
+            <a href="palestras.html"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-lectures">Palestras</a>
+            <a href="#experiencia"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-experience">Experiência</a>
+            <a href="#competencias"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-skills">Competências</a>
+            <a href="cursos.html"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-courses">Cursos</a>
+            <a href="mentoria.html"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-mentoring">Mentoria</a>
+            <a href="#contato"
+                class="block py-2 px-6 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                data-key="nav-contact">Fale Comigo</a>
+            <div class="px-6 py-2 flex justify-between items-center">
+                <!-- Language Switcher Mobile (inside mobile menu) -->
+
+                <button id="dark-mode-toggle-mobile"
+                    class="w-full text-left p-2 rounded-md text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                    Mudar para <span id="theme-name">Dark</span> Mode
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Carrossel de Imagens -->
+    <section id="carousel" class="w-full h-64 md:h-96 overflow-hidden relative">
+        <div class="carousel-inner relative w-full h-full">
+            <div
+                class="carousel-item absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="imagens/banner-2.jpeg" class="w-full h-full object-cover" alt="Banner 2">
+            </div>
+            <div
+                class="carousel-item absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="imagens/banner-4.jpeg" class="w-full h-full object-cover" alt="Banner 4">
+            </div>
+            <div
+                class="carousel-item absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="imagens/banner-6.jpeg" class="w-full h-full object-cover" alt="Banner 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto max-w-5xl p-6 mt-8">
+
+        <!-- Seção Sobre -->
+        <!-- Seção Sobre -->
+        <section id="sobre" class="mb-16 scroll-mt-20">
+            <div
+                class="bg-white dark-card rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl">
+                <div class="md:flex">
+                    <!-- Coluna da Imagem -->
+                    <div class="md:w-2/5 relative group">
+                        <img src="imagens/sobre.jpeg" alt="Foto de Giovanni Carvalho Mendes"
+                            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span class="text-white font-medium tracking-wider">Giovanni Carvalho Mendes</span>
+                        </div>
+                    </div>
+                    <!-- Coluna do Texto -->
+                    <div class="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="uppercase tracking-wide text-sm text-blue-600 dark:text-blue-400 font-bold mb-2"
+                            data-key="about-title">Sobre</div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-500 !dark:text-gray-400 mb-6 leading-tight"
+                            data-key="hero-title">
+                            Software Engineer <span class="text-gray-500 !dark:text-gray-400">|</span> Full Stack
+                            Developer
+                        </h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6"
+                            data-key="about-text-1">
+                            Engenheiro de Software com experiência sólida no desenvolvimento de aplicações web robustas
+                            e
+                            escaláveis. Especialista no ecossistema Java (Spring Framework) e em tecnologias de
+                            front-end
+                            modernas como Angular. Focado em entregar código de alta qualidade, seguindo boas práticas
+                            de
+                            arquitetura e metodologias ágeis para resolver problemas complexos de negócio.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="h-1 w-20 bg-blue-600 dark:bg-purple-500 rounded-full"></div>
+                            <div class="h-1 w-5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Palestras -->
+        <section id="palestras" class="mb-16 scroll-mt-20">
+            <div
+                class="bg-white dark-card rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl">
+                <div class="md:flex">
+                    <!-- Coluna da Imagem -->
+                    <div class="md:w-2/5 relative group">
+                        <img src="imagens/palestras.jpeg" alt="Imagem de palestras"
+                            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span class="text-white font-medium tracking-wider">Compartilhando Conhecimento</span>
+                        </div>
+                    </div>
+                    <!-- Coluna do Texto -->
+                    <div class="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="uppercase tracking-wide text-sm text-blue-600 dark:text-blue-400 font-bold mb-2"
+                            data-key="lectures-label">palestras</div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-500 !dark:text-gray-400 mb-6"
+                            data-key="lectures-title">
+                            Palestras e <span class="text-gray-500 !dark:text-gray-400">Apresentações</span>
+                        </h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
+                            data-key="lectures-text-1">
+                            Palestras e workshops que ministrei, com links para os materiais e
+                            gravações disponíveis.
+                        </p>
+                        <div>
+                            <a href="palestras.html"
+                                class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 dark:bg-purple-600 dark:hover:bg-purple-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                Ver todas as palestras
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção Comunidade Tech -->
+        <section id="comunidade" class="mb-16 scroll-mt-20">
+            <div
+                class="bg-white dark-card rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl">
+                <div class="md:flex">
+                    <!-- Coluna da Imagem -->
+                    <div class="md:w-2/5 relative group">
+                        <img src="imagens/comunidade.jpeg" alt="Imagem da comunidade"
+                            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span class="text-white font-medium tracking-wider">Networking & Crescimento</span>
+                        </div>
+                    </div>
+                    <!-- Coluna do Texto -->
+                    <div class="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="uppercase tracking-wide text-sm text-blue-600 dark:text-blue-400 font-bold mb-2"
+                            data-key="community-label">Comunidade</div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-500 !dark:text-gray-400 mb-6 leading-tight"
+                            data-key="community-title">
+                            Comunidade <span class="text-gray-500 !dark:text-gray-400">Tech</span>
+                        </h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
+                            data-key="community-text-1">
+                            Sou organizador da Golang SP uma comunidade tech focada em desenvolvimento Go.
+                            Neste espaço você vai ficar sabendo sobre as próximos meetups e eventos.
+                        </p>
+                        <div>
+                            <a href="#"
+                                class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 dark:bg-purple-600 dark:hover:bg-purple-700 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                                data-key="community-button">
+                                Conhecer mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção Experiência -->
+        <section id="experiencia" class="mb-16 scroll-mt-20">
+            <h3 class="text-2xl font-bold text-center mb-12 text-blue-600 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent"
+                data-key="experience-title">Experiência Profissional</h3>
+
+            <!-- Versão Desktop (Timeline) -->
+            <div class="hidden md:block container mx-auto w-full h-full">
+                <div class="relative wrap overflow-hidden p-10 h-full">
+                    <div class="border-2-2 absolute border-opacity-20 border-gray-700 dark:border-white h-full border"
+                        style="left: 50%"></div>
+
+                    <!-- Bloco da Direita -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div
+                            class="z-20 flex items-center order-1 bg-blue-600 dark:bg-blue-500 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                        </div>
+                        <div class="order-1 bg-white dark-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <div class="flex items-center mb-2">
+                                <img src="imagens/logo-bradesco.png" alt="Banco Bradesco"
+                                    class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                                <div>
+                                    <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400"
+                                        data-key="job-title-1">
+                                        Software Engineer</h4>
+                                    <p class="font-medium text-gray-700 dark:text-white" data-key="company-1">Banco
+                                        Bradesco</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-key="period-1">Ago 2025 – Atual</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2" data-key="description-1">
+                                Especialista em modernização de sistemas, atuando desde a sustentação de mainframes até
+                                a construção de arquiteturas seguras em microsserviços na nuvem Azure, com foco em IAM,
+                                práticas de SRE e metodologias ágeis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Bloco da Esquerda -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div
+                            class="z-20 flex items-center order-1 bg-blue-600 dark:bg-blue-500 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                        </div>
+                        <div class="order-1 bg-white dark-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <div class="flex items-center mb-2">
+                                <img src="imagens/logo-tokio-marine-seguradora.png" alt="Tokio Marine Seguradora"
+                                    class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                                <div>
+                                    <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400"
+                                        data-key="job-title-2">
+                                        Full
+                                        Stack Developer</h4>
+                                    <p class="font-medium text-gray-700 dark:text-white" data-key="company-2">Tokio
+                                        Marine
+                                        Seguradora</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-key="period-2">Jun 2025 – Jul 2025
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2" data-key="description-2">
+                                Desenvolvimento full-stack e modernização de plataformas críticas, com domínio em
+                                Java/Spring, arquiteturas de microsserviços e frontends modernos, integrando práticas de
+                                DevOps/SRE e governança técnica para garantir a escalabilidade e observabilidade de
+                                sistemas de alta complexidade.</p>
+                        </div>
+                    </div>
+
+                    <!-- Bloco da Direita -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div
+                            class="z-20 flex items-center order-1 bg-blue-600 dark:bg-blue-500 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">3</h1>
+                        </div>
+                        <div class="order-1 bg-white dark-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <div class="flex items-center mb-2">
+                                <img src="imagens/logo-getnet.png" alt="Getnet"
+                                    class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                                <div>
+                                    <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400"
+                                        data-key="job-title-3">
+                                        Software Analyst</h4>
+                                    <p class="font-medium text-gray-600 dark:text-gray-300" data-key="company-3">Getnet
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-key="period-3">Mar 2024 – Fev 2025
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2" data-key="description-3"> Liderei a
+                                implantação global de governança via JIRA e o desenvolvimento de soluções full-stack
+                                (Java/Spring, React/Vue) integradas a pipelines de dados, unindo a gestão ágil de squads
+                                à entrega estratégica de KPIs e automação para áreas de negócio. </p>
+                        </div>
+                    </div>
+
+                    <!-- Bloco da Esquerda -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div
+                            class="z-20 flex items-center order-1 bg-blue-600 dark:bg-blue-500 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                        </div>
+                        <div class="order-1 bg-white dark-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <div class="flex items-center mb-2">
+                                <img src="imagens/logo-itau.png" alt="Itaú Unibanco"
+                                    class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                                <div>
+                                    <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400"
+                                        data-key="job-title-4">
+                                        Software Engineer</h4>
+                                    <p class="font-medium text-gray-600 dark:text-gray-300" data-key="company-4">Itaú
+                                        Unibanco
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-key="period-4">Mar 2020 – Fev 2024
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2" data-key="description-4">
+                                Desenvolvimento de soluções escaláveis em nuvem (AWS), unindo a modernização de sistemas
+                                críticos (PIX/Mainframe) ao desenvolvimento de microsserviços (Java/Spring, Angular)
+                                orientados a eventos. </p>
+                        </div>
+                    </div>
+
+                    <!-- Bloco da Direita -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div
+                            class="z-20 flex items-center order-1 bg-blue-600 dark:bg-blue-500 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">5</h1>
+                        </div>
+                        <div class="order-1 bg-white dark-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <div class="flex items-center mb-2">
+                                <img src="imagens/logo-plataforma-verde.png" alt="Plataforma Verde"
+                                    class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                                <div>
+                                    <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400"
+                                        data-key="job-title-5">
+                                        Developer</h4>
+                                    <p class="font-medium text-gray-600 dark:text-gray-300" data-key="company-5">
+                                        Plataforma
+                                        Verde </p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-key="period-5">Dez 2019 – Mar 2020
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2" data-key="description-5">
+                                Desenvolvedor Python focado em soluções SaaS e Blockchain, com expertise em arquitetura
+                                de dados e visualização estratégica (Power BI) para gestão ESG e monitoramento de
+                                clientes B2B em ambientes ágeis. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Versão Mobile (Cards) -->
+            <div class="md:hidden space-y-6">
+                <!-- Card 1 -->
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-blue-600 dark:bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+                            1</div>
+                        <img src="imagens/logo-bradesco.png" alt="Banco Bradesco"
+                            class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                        <div>
+                            <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400" data-key="job-title-1">
+                                Software Engineer</h4>
+                            <p class="font-medium text-gray-700 dark:text-white" data-key="company-1">Banco Bradesco</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3" data-key="period-1">Ago 2025 – Atual</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" data-key="description-1">
+                        Especialista em modernização de sistemas, atuando desde a sustentação de mainframes até a
+                        construção de arquiteturas seguras em microsserviços na nuvem Azure, com foco em IAM, práticas
+                        de SRE e metodologias ágeis.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-blue-600 dark:bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+                            2</div>
+                        <img src="imagens/logo-tokio-marine-seguradora.png" alt="Tokio Marine Seguradora"
+                            class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                        <div>
+                            <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400" data-key="job-title-2">
+                                Full
+                                Stack Developer</h4>
+                            <p class="font-medium text-gray-700 dark:text-white" data-key="company-2">Tokio Marine
+                                Seguradora</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3" data-key="period-2">Jun 2025 – Jul 2025</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" data-key="description-2">
+                        Desenvolvimento full-stack e modernização de plataformas críticas, com domínio em Java/Spring,
+                        arquiteturas de microsserviços e frontends modernos, integrando práticas de DevOps/SRE e
+                        governança técnica para garantir a escalabilidade e observabilidade de sistemas de alta
+                        complexidade.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-blue-600 dark:bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+                            3</div>
+                        <img src="imagens/logo-getnet.png" alt="Getnet"
+                            class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                        <div>
+                            <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400" data-key="job-title-3">
+                                Software Analyst</h4>
+                            <p class="font-medium text-gray-600 dark:text-gray-300" data-key="company-3">Getnet</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3" data-key="period-3">Mar 2024 – Fev 2025</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" data-key="description-3">
+                        Liderei a implantação global de governança via JIRA e o desenvolvimento de soluções full-stack
+                        (Java/Spring, React/Vue) integradas a pipelines de dados, unindo a gestão ágil de squads à
+                        entrega estratégica de KPIs e automação para áreas de negócio.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-blue-600 dark:bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+                            4</div>
+                        <img src="imagens/logo-itau.png" alt="Itaú Unibanco"
+                            class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                        <div>
+                            <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400" data-key="job-title-4">
+                                Software Engineer</h4>
+                            <p class="font-medium text-gray-600 dark:text-gray-300" data-key="company-4">Itaú Unibanco
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3" data-key="period-4">Mar 2020 – Fev 2024</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" data-key="description-4">
+                        Desenvolvimento de soluções escaláveis em nuvem (AWS), unindo a modernização de sistemas
+                        críticos (PIX/Mainframe) ao desenvolvimento de microsserviços (Java/Spring, Angular) orientados
+                        a eventos.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-blue-600 dark:bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+                            5</div>
+                        <img src="imagens/logo-plataforma-verde.png" alt="Plataforma Verde"
+                            class="w-12 h-12 object-contain mr-4 rounded-full bg-white p-1 shadow-sm">
+                        <div>
+                            <h4 class="font-semibold text-xl text-gray-500 !dark:text-gray-400" data-key="job-title-5">
+                                Developer</h4>
+                            <p class="font-medium text-gray-600 dark:text-gray-300" data-key="company-5">Plataforma
+                                Verde</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3" data-key="period-5">Dez 2019 – Mar 2020</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" data-key="description-5">
+                        Desenvolvedor Python focado em soluções SaaS e Blockchain, com expertise em arquitetura de dados
+                        e visualização estratégica (Power BI) para gestão ESG e monitoramento de clientes B2B em
+                        ambientes ágeis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Formação Acadêmica -->
+        <section id="formacao" class="mb-16 scroll-mt-20">
+            <h3 class="text-2xl font-bold border-b-2 border-blue-200 dark:border-blue-700 pb-2 mb-8 text-blue-600 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent"
+                data-key="education-title">Formação Acadêmica</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Card Pós-Graduação (Placeholder) -->
+                <div
+                    class="bg-white dark-card rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border-l-4 border-blue-500 transform hover:-translate-y-1">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-2"
+                                data-key="postgrad-title">Pós-graduação em Liderança e Tecnologia</h4>
+                            <p class="text-md text-gray-700 dark:text-white font-medium mb-1"
+                                data-key="postgrad-university"> FIAP </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                <span data-key="postgrad-period">Concluído em 2025</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Graduação -->
+                <div
+                    class="bg-white dark-card rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border-l-4 border-gray-500 transform hover:-translate-y-1">
+                    <div class="flex items-start">
+                        <div class="bg-gray-100 dark:bg-gray-900/30 p-3 rounded-lg mr-4">
+                            <svg class="w-8 h-8 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path
+                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-2" data-key="degree-1">
+                                Graduação em Análise e Desenvolvimento de Sistemas</h4>
+                            <p class="text-md text-gray-700 dark:text-white font-medium mb-1" data-key="university-1">
+                                Centro Universitário FAM </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                <span data-key="education-period-1">Concluído em 2022</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção Competências -->
+
+        <section id="competencias" class="mb-16 scroll-mt-20">
+
+            <h3 class="text-2xl font-bold text-center mb-12 text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent"
+                data-key="skills-title">Principais Competências</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+
+
+                <!-- Card Back-end -->
+
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+
+                    <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-4" data-key="backend-title">
+                        Back-end
+                    </h4>
+
+                    <ul class="space-y-2">
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Java</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Spring Boot</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Go</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Python</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>REST APIs</li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Card Front-end -->
+
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+
+                    <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-4" data-key="frontend-title">
+                        Front-end
+                    </h4>
+
+                    <ul class="space-y-2">
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Angular</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18
+
+         0 9 9 0 0118 0z"></path>
+                            </svg>React</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>HTML5 & CSS3</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>JavaScript</li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Card Banco de Dados -->
+
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+
+                    <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-4" data-key="database-title">
+                        Banco de
+                        Dados</h4>
+
+                    <ul class="space-y-2">
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>SQL</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>PostgreSQL</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>MySQL</li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Card Ferramentas e Metodologias -->
+
+                <div class="bg-white dark-card rounded-lg shadow-lg p-6">
+
+                    <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-4" data-key="tools-title">
+                        Ferramentas
+                        e Metodologias</h4>
+
+                    <ul class="space-y-2">
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Git/GitHub</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Docker</li>
+
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>Kubernetes</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Seção Fale Comigo -->
+        <section id="contato" class="mb-16 scroll-mt-20">
+            <h3 class="text-2xl font-bold border-b-2 border-blue-200 dark:border-blue-700 pb-2 mb-6 text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-500 dark:bg-clip-text dark:text-transparent"
+                data-key="contact-me-title">Fale Comigo</h3>
+            <div class="flex justify-center">
+                <div
+                    class="w-full max-w-lg bg-white dark-card p-8 rounded-lg shadow-md flex flex-col items-center justify-center text-center">
+                    <p class="text-xl font-semibold text-gray-500 !dark:text-gray-400 mb-8" data-key="contact-prompt">
+                        Entre em contato:</p>
+
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me/5511961985346" target="_blank"
+                        class="w-full bg-green-500 text-white font-bold px-6 py-4 rounded-lg hover:bg-green-600 transition flex items-center justify-center mb-4 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        data-key="contact-whatsapp-button">
+                        <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.04 2.01c-5.47 0-9.91 4.44-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.4 5.15 5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.47 0 9.91-4.44 9.91-9.91s-4.44-9.91-9.91-9.91zm4.79 13.58c-.29.29-.68.43-1.07.43-.39 0-.78-.14-1.07-.43l-.64-.64c-.19-.19-.49-.19-.68 0-.19.19-.19.49 0 .68l.64.64c.58.58 1.35.87 2.12.87.77 0 1.54-.29 2.12-.87l.64-.64c.19-.19.19-.49 0-.68-.19-.19-.49-.19-.68 0l-.64.64zm-1.42-1.42c-.29.29-.68.43-1.07.43-.39 0-.78-.14-1.07-.43l-.64-.64c-.19-.19-.49-.19-.68 0-.19.19-.19.49 0 .68l.64.64c.58.58 1.35.87 2.12.87.77 0 1.54-.29 2.12-.87l.64-.64c.19-.19.19-.49 0-.68-.19-.19-.49-.19-.68 0l-.64.64zm-1.42-1.42c-.29.29-.68.43-1.07.43-.39 0-.78-.14-1.07-.43l-.64-.64c-.19-.19-.49-.19-.68 0-.19.19-.19.49 0 .68l.64.64c.58.58 1.35.87 2.12.87.77 0 1.54-.29 2.12-.87l.64-.64c.19-.19.19-.49 0-.68-.19-.19-.49-.19-.68 0l-.64.64z" />
+                        </svg>
+                        WhatsApp
+                    </a>
+
+                    <!-- Email Button -->
+                    <a href="mailto:giovannidecarvalhomendes@gmail.com"
+                        class="w-full bg-blue-600 text-white font-bold px-6 py-4 rounded-lg hover:bg-blue-700 dark:bg-purple-600 dark:hover:bg-purple-700 transition flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        data-key="contact-email-button">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        E-mail
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-white dark-card mt-16 py-6">
+        <div class="container mx-auto max-w-5xl px-6 text-center text-gray-500 dark:text-gray-400">
+            <p data-key="footer-text">&copy; 2025 Giovanni Carvalho Mendes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
