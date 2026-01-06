@@ -76,6 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselItems = document.querySelectorAll('.carousel-item');
     let currentItem = 0;
     if (carouselItems.length > 0) {
+        // Show first image immediately
+        carouselItems[currentItem].classList.remove('opacity-0');
+        carouselItems[currentItem].classList.add('active', 'opacity-100');
+
         setInterval(() => {
             carouselItems[currentItem].classList.remove('active', 'opacity-100');
             carouselItems[currentItem].classList.add('opacity-0');
