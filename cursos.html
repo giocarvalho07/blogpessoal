@@ -23,9 +23,17 @@
     <!-- Cabeçalho e Navegação -->
     <header id="header" class="bg-white dark-card shadow-md sticky top-0 z-50">
         <nav class="container mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
-            <a href="index.html"
-                class="text-2xl font-bold text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-600 dark:bg-clip-text dark:text-transparent">Giovanni
-                Carvalho Mendes</a>
+            <a href="index.html" class="flex items-center">
+                <!-- Ícone G para Mobile -->
+                <div
+                    class="md:hidden w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                    G
+                </div>
+                <!-- Nome completo para Desktop -->
+                <span
+                    class="hidden md:block text-2xl font-bold text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-600 dark:bg-clip-text dark:text-transparent">Giovanni
+                    Carvalho Mendes</span>
+            </a>
             <div class="space-x-4 hidden md:flex items-center">
                 <a href="index.html#sobre"
                     class="text-gray-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
@@ -158,60 +166,7 @@
                 data-key="nav-courses">Cursos</a>
             <a href="index.html#contato" class="block py-2 px-6 text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
                 data-key="nav-contact">Fale Comigo</a>
-            <div class="px-6 py-2 flex justify-between items-center">
-                <!-- Language Switcher Mobile (inside mobile menu) -->
-                <div>
-                    <button onclick="translatePage('en')"
-                        class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                        title="Translate to English">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
-                                fill="#0A3161" />
-                            <path
-                                d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
-                                stroke="#000000" stroke-width="0.5" />
-                            <path d="M3 7H21V9H3V7Z" fill="#FFFFFF" />
-                            <path d="M3 11H21V13H3V11Z" fill="#FFFFFF" />
-                            <path d="M3 15H21V17H3V15Z" fill="#FFFFFF" />
-                            <path d="M3 19H21V21H3V19Z" fill="#FFFFFF" />
-                            <path d="M3 3H12V11H3V3Z" fill="#BF0A30" />
-                            <path d="M5 5L10 9L5 9L10 5L5 5Z" fill="#FFFFFF" />
-                            <path d="M7.5 4.5L8.5 6.5L6.5 6.5L7.5 4.5Z" fill="#FFFFFF" />
-                            <path d="M7.5 7.5L8.5 9.5L6.5 9.5L7.5 7.5Z" fill="#FFFFFF" />
-                            <path d="M4.5 7.5L5.5 9.5L3.5 9.5L4.5 7.5Z" fill="#FFFFFF" />
-                            <path d="M10.5 7.5L11.5 9.5L9.5 9.5L10.5 7.5Z" fill="#FFFFFF" />
-                            <path d="M4.5 4.5L5.5 6.5L3.5 6.5L4.5 4.5Z" fill="#FFFFFF" />
-                            <path d="M10.5 4.5L11.5 6.5L9.5 6.5L10.5 4.5Z" fill="#FFFFFF" />
-                        </svg>
-                    </button>
-                    <button onclick="translatePage('es')"
-                        class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                        title="Traducir a Español">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
-                                fill="#FFC400" />
-                            <path
-                                d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5Z"
-                                stroke="#000000" stroke-width="0.5" />
-                            <path d="M3 9H21V15H3V9Z" fill="#C60B1E" />
-                        </svg>
-                    </button>
-                    <button onclick="translatePage('pt-BR')"
-                        class="p-2 rounded-full text-gray-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                        title="Traduzir para Português (BR)">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z"
-                                fill="#009B3A" />
-                            <path d="M12 6L17 12L12 18L7 12L12 6Z" fill="#FFCC29" />
-                            <path
-                                d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
-                                fill="#002776" />
-                        </svg>
-                    </button>
-                </div>
+            <div class="px-6 py-2">
                 <button id="dark-mode-toggle-mobile"
                     class="w-full text-left p-2 rounded-md text-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700">
                     Mudar para <span id="theme-name">Dark</span> Mode

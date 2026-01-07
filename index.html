@@ -26,9 +26,17 @@
     <!-- Cabeçalho e Navegação -->
     <header id="header" class="bg-white dark-card shadow-md sticky top-0 z-50">
         <nav class="container mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
-            <a href="#"
-                class="text-2xl font-bold text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-600 dark:bg-clip-text dark:text-transparent">Giovanni
-                Carvalho Mendes</a>
+            <a href="#" class="flex items-center">
+                <!-- Ícone G para Mobile -->
+                <div
+                    class="md:hidden w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                    G
+                </div>
+                <!-- Nome completo para Desktop -->
+                <span
+                    class="hidden md:block text-2xl font-bold text-blue-600 dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-600 dark:bg-clip-text dark:text-transparent">Giovanni
+                    Carvalho Mendes</span>
+            </a>
 
             <!-- Menu Desktop -->
             <div class="space-x-4 hidden md:flex items-center">
@@ -619,11 +627,11 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <!-- Card Pós-Graduação (Placeholder) -->
+                <!-- Card Pós-Graduação -->
                 <div
                     class="bg-white dark-card rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border-l-4 border-blue-500 transform hover:-translate-y-1">
                     <div class="flex items-start">
-                        <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+                        <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mr-4 flex-shrink-0">
                             <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -631,11 +639,14 @@
                                 </path>
                             </svg>
                         </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-2"
-                                data-key="postgrad-title">Pós-graduação em Liderança e Tecnologia</h4>
-                            <p class="text-md text-gray-700 dark:text-white font-medium mb-1"
-                                data-key="postgrad-university"> FIAP </p>
+                        <div class="flex-grow">
+                            <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-2">Pós-graduação em
+                                Liderança e Tecnologia</h4>
+                            <div class="flex items-center mb-1">
+                                <p class="text-md text-gray-700 dark:text-white font-medium mr-2">FIAP</p>
+                                <img src="imagens/logo-fiap.png" alt="Logo FIAP"
+                                    class="w-6 h-6 object-contain rounded bg-white p-0.5 shadow-sm">
+                            </div>
                             <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -643,7 +654,7 @@
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                                     </path>
                                 </svg>
-                                <span data-key="postgrad-period">Concluído em 2025</span>
+                                <span>Concluído em 2025</span>
                             </p>
                         </div>
                     </div>
@@ -653,7 +664,7 @@
                 <div
                     class="bg-white dark-card rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border-l-4 border-gray-500 transform hover:-translate-y-1">
                     <div class="flex items-start">
-                        <div class="bg-gray-100 dark:bg-gray-900/30 p-3 rounded-lg mr-4">
+                        <div class="bg-gray-100 dark:bg-gray-900/30 p-3 rounded-lg mr-4 flex-shrink-0">
                             <svg class="w-8 h-8 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -665,11 +676,15 @@
                                 </path>
                             </svg>
                         </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-2" data-key="degree-1">
-                                Graduação em Análise e Desenvolvimento de Sistemas</h4>
-                            <p class="text-md text-gray-700 dark:text-white font-medium mb-1" data-key="university-1">
-                                Centro Universitário FAM </p>
+                        <div class="flex-grow">
+                            <h4 class="text-xl font-bold text-gray-500 !dark:text-gray-400 mb-2">Graduação em Análise e
+                                Desenvolvimento de Sistemas</h4>
+                            <div class="flex items-center mb-1">
+                                <p class="text-md text-gray-700 dark:text-white font-medium mr-2">Centro Universitário
+                                    FAM</p>
+                                <img src="imagens/logo-fam.png" alt="Logo FAM"
+                                    class="w-6 h-6 object-contain rounded bg-white p-0.5 shadow-sm">
+                            </div>
                             <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -677,7 +692,7 @@
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                                     </path>
                                 </svg>
-                                <span data-key="education-period-1">Concluído em 2022</span>
+                                <span>Concluído em 2022</span>
                             </p>
                         </div>
                     </div>
@@ -707,31 +722,31 @@
 
                     <ul class="space-y-2">
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Java</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Spring Boot</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Go</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Python</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -753,26 +768,26 @@
 
                     <ul class="space-y-2">
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Angular</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18
 
          0 9 9 0 0118 0z"></path>
                             </svg>React</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>HTML5 & CSS3</li>
+                            </svg>HTML5 &amp; CSS3</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -794,19 +809,19 @@
 
                     <ul class="space-y-2">
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>SQL</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>PostgreSQL</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -828,19 +843,19 @@
 
                     <ul class="space-y-2">
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Git/GitHub</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>Docker</li>
 
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="none"
+                        <li class="flex items-center text-gray-600"><svg class="w-5 h-5 mr-2 text-gray-500" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
